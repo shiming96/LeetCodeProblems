@@ -22,24 +22,18 @@ class Solution {
     }
 
     //--------------------------------------------------
-    //                  O(n)解法 利用HashMap    
+    //     O(n)解法 利用HashMap存储值与索引的映射   
     //--------------------------------------------------
     public int[] twoSum1(int[] nums, int target) {
-        int[] ret = new int[2];
-        HashMap<Integer,Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++) {
-            map.put(nums[i],i);
-        }
-        
-        for(int i = 0; i < nums.length; i++) {
-            int num = target - nums[i];
-            if(map.containsKey(num) && map.get(num) != i) {
-                ret[0] = i;
-                ret[1] = map.get(num);
-                break;
+            int complement = target - nums[i];
+            if(map.containsKey(complement)) {
+                return new int[] {map.get(complement), i};
             }
+            map.put(nums[i], i);
         }
-        return ret;
+        return null;
     }
 
 }
