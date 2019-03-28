@@ -7,8 +7,6 @@ class Solution {
     // 1.   暴力法   循环遍历 O(n3)
     // 2.   窗口滑动法  O(n) 
     //--------------------------------------------------
-
-
     public int lengthOfLongestSubstring(String s) {
         int n = s.length();
         Set<Character> set = new HashSet<>();
@@ -32,7 +30,7 @@ class Solution {
     public int lengthOfLongestSubstring1(String s) {
         int n = s.length();
         int ans = 0;
-        Map(Character, Integer) map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         for(int j = 0, i = 0; j < n; j++) {
             if(map.containsKey(s.charAt(j))) {
                 i = Math.max(map.get(s.charAt(j)), i);
