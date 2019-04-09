@@ -5,7 +5,7 @@ class Solution {
         ListNode dummyHead = new ListNode(0);
         dummyHead.next = head;
         ListNode pre = dummyHead;
-        while(node != null && node.next != null) {
+        while (node != null && node.next != null) {
             ListNode temp = node.next;
             node.next = node.next.next;
             temp.next = node;
@@ -23,7 +23,7 @@ class Solution {
     //  3.主体:     递归重复做一样的事，宏观上考虑某一步的工作，即交换头节点和他后面的一个节点。
     //------------------------------------------------
     public ListNode swapPairs(ListNode head) {
-        if(head == null || head.next == null)
+        if (head == null || head.next == null)
             return head;
         
         ListNode next = head.next;
